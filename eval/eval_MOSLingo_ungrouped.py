@@ -1,10 +1,10 @@
 from transformers import BertModel
 import torch
-from utils.TestDataLoader import TestDataLoader
+from dataloader.TestDataLoader import TestDataLoader
 from torch.utils.data import TensorDataset, DataLoader
 import torch.nn as nn
 import torch.nn.functional as F
-from utils.eval_utils import run_eval
+from utils.eval_utils import run_eval_ungrouped
 import time
 from utils.log_utils import get_logger
 
@@ -14,11 +14,11 @@ plm_for_tokenize = "bert-base-cased"
 def main():
     test_data_loader = TestDataLoader(plm_for_tokenize=plm_for_tokenize,
                                  max_token_len=128)
-    test_data_loader.add_ind_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/CLINIC/demo_clinic.csv")
-    # test_data_loader.add_ind_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/M-CID/demo_mcid.csv")
-    # test_data_loader.add_ind_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/HWU/demo_hwu.csv")
-    # test_data_loader.add_ind_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/Snips/demo_snips.csv")
-    test_data_loader.add_ood_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/CLINIC/demo_stackoverflow.csv")
+    test_data_loader.add_ind_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/CLINIC/demo_clinic.csv")
+    # test_data_loader.add_ind_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/M-CID/demo_mcid.csv")
+    # test_data_loader.add_ind_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/HWU/demo_hwu.csv")
+    # test_data_loader.add_ind_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/Snips/demo_snips.csv")
+    test_data_loader.add_ood_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/CLINIC/demo_stackoverflow.csv")
 
     input_ids = torch.tensor([i for i in test_data_loader.test_input_ids_batch], dtype=torch.long)
     attention_mask = torch.tensor([i for i in test_data_loader.test_attention_mask_batch], dtype=torch.long)
@@ -60,5 +60,5 @@ def main():
         pred_prob = F.softmax(logits)
 
         # pred
-        run_eval(logger, pred_prob, group_slice, labels)
+        run_eval_ungrouped(logger, pred_prob, group_slice, labels)
 

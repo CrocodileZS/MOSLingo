@@ -1,4 +1,4 @@
-from utils.MOSLingoDataLoader import MOSLingoDataLoader
+from dataloader.MOSLingoDataLoader import MOSLingoDataLoader
 import torch
 from torch.utils.data import TensorDataset, DataLoader
 import torch.nn as nn
@@ -15,15 +15,15 @@ plm_for_tokenize = "bert-base-cased"
 num_group = 4
 
 def main():
-    # load the data
+    # load the dataset
     data_loader = MOSLingoDataLoader(plm_for_tokenize=plm_for_tokenize,
                                      num_group=num_group,
                                      max_token_len=128)
 
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/CLINIC/demo_clinic.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/M-CID/demo_mcid.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/HWU/demo_hwu.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/Snips/demo_snips.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/CLINIC/demo_clinic.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/M-CID/demo_mcid.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/HWU/demo_hwu.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/Snips/demo_snips.csv")
 
     input_ids = torch.tensor([i for i in data_loader.input_ids_batch], dtype=torch.long)
     attention_mask = torch.tensor([i for i in data_loader.attention_mask_batch], dtype=torch.long)

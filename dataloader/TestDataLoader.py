@@ -47,7 +47,7 @@ class TestDataLoader:
 if __name__ == "__main__":
     data_loader = TestDataLoader(plm_for_tokenize="bert-base-cased", max_token_len=128)
 
-    data_loader.add_ind_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/CLINIC/demo_clinic.csv")
-    data_loader.add_ood_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/M-CID/demo_mcid.csv")
+    data_loader.add_ind_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/CLINIC/demo_clinic.csv")
+    data_loader.add_ood_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/M-CID/demo_mcid.csv")
 
     print("--finished--")

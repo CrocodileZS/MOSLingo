@@ -51,7 +51,7 @@ class MOSLingoDataLoader:
 if __name__ == "__main__":
     data_loader = MOSLingoDataLoader(plm_for_tokenize="bert-base-cased", num_group=4, max_token_len=128)
 
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/CLINIC/demo_clinic.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/M-CID/demo_mcid.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/HWU/demo_hwu.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/Snips/demo_snips.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/CLINIC/demo_clinic.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/M-CID/demo_mcid.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/HWU/demo_hwu.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/Snips/demo_snips.csv")
