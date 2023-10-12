@@ -1,0 +1,191 @@
+3,86,HTTP communication monitoring on OS X
+3,86,How to set OS X Terminal's default home?
+3,39,Adding custom log locations to the OS X console application...
+3,36,Debugging SharePoint 2007 Code
+3,11,Multiple repositories, single setup
+3,76,Easy way to embed svn revision number in page in PHP?
+3,58,What are the various "Build action" settings in VS.NET project properties and what do they do?
+3,62,gdbinit conflict with Xcode debugging
+3,87,how to set a menubar icon on mac osx using wx
+3,20,Visual Studio support for new C / C++ standards?
+3,90,How do I sort a file in place using bash shell?
+3,65,Crafting .webloc file
+3,90,How do I rename a SharePoint virtual machine
+3,19,Why does my Out of the Box SharePoint Navigation look like it is leaking memory
+3,3,Why always return null when call the method IQueryable.FirstOrDefault()?
+3,12,Top & httpd - demystifying what is actually running
+3,82,NHibernate + JSON/Ajax Parent/Child Relationships? Why no workie?
+3,84,Automatically adding specified text at beginning of files in VS 2008
+3,51,How to diagnosis OSX app crash from error log?
+3,25,How can I remotely (via web services) determine date format of SharePoint 2003 site, for use in Versions.asmx returned XML?
+3,74,How to use SQLab Xpert Tuning to tune SQL for better performance?
+3,8,Anyone have commit notification hook script that will send email upon commit of codes?
+3,76,Create a tag upon every build of the application?
+3,76,Is there anyway to tell Visual Studio not to open all the documents when I load solution?
+3,1,Sharepoint Workflow Modification is not disabled
+3,65,How do I refresh the relationships in a dataset?
+3,62,How do I properly branch post-commit and revert the trunk in svn?
+3,77,Visual Studio Keyboard Shortcut to automatically add the needed Using statement
+3,56,How To Removing Trailing Whitespace Of All Files Recursively?
+3,94,Can Multiple Indexes Work Together?
+3,93,Capturing the Click event in an Excel spreadsheet
+3,38,Customizing Visual Studio's Intellisense
+3,2,annotation based Spring bean validation
+3,7,Viewing repository information from within Eclipse, when code was checked out using svn tortoise
+3,38,Best way to make NSRunLoop wait for a flag to be set?
+3,3,Preferred path to applications on OSX?
+3,41,Has anyone run into problems in TortoiseSVN where the 'author' isn't written to the log?
+3,89,How to run Visual Studio post-build events for debug build only
+3,83,Separation of Presentation and Business Tiers with Spring
+3,15,How can I upgrade the *console* version of vim on OS X?
+3,59,Wordpress search results on external page
+3,0,How do I embed a File Version in an MSI file with Visual Studio?
+3,29,Code Promotion: Build or Binary?
+3,84,Structuring projects & dependencies of large winforms applications in C#
+3,82,Access Excel Programmatically
+3,41,svn + repostiory location
+3,60,How to capture the "Print" button from the menu bar in a macro
+3,61,How do you structure your SVN repository?
+3,12,Credential Caching Fail on SVN 1.5.2
+3,32,Code coverage for PL/SQL
+3,12,Unit testing for PL/SQL
+3,49,Wordpress Site Monitoring software / service
+3,83,CruiseControl.net : Using SvnLabeller / SvnRevisionLabeller
+3,46,How do I resolve a merge conflict with SVN properties?
+3,36,Escape < and > in sed/bash
+3,91,SQL Developer error
+3,13,TSVNCache.exe is heating up my Mac
+3,28,Animations with full alpha in QT 4.4?
+3,78,Subversion - is trunk really the best place for the main development?
+3,0,How should I store a Guid in Oracle
+3,41,Viewing a MOSS 2007 page as another user would see it - without logging in as that user
+3,42,How do you get Excel to refresh data on sheet from within VBA?
+3,51,How do I put a File (Excel) online (Apache Server) with Password Protection but with the Option for Users to alter the File and save the changes?
+3,51,LinqtoSQL filter and order by syntax
+3,28,How do you remove subversion control for a folder?
+3,32,Microsoft Excel mangles Diacritics in .csv files?
+3,11,Handling exceptions raised during method called via NSObject's performSelectorOnMainThread:withObject:waitUntilDone:
+3,59,LINQ Submit Changes not submitting changes
+3,56,Extending chart functionality in SSRS
+3,1,Exception thrown in a referenced .dll how do I debug?
+3,35,How do you use git svn?
+3,32,qt/wxwidgets third party components?
+3,5,How do I configure visual studio to use the code view as the default view for Webservices?
+3,4,Haskell Syntax case expression in a do block
+3,94,Using Mercurial, is there an easy way to diff my working copy with the tip file in the default remote repository
+3,76,Mask redirect to temporary domain with mod_rewrite
+3,33,unwanted leading blank space on oracle number format
+3,67,in-house projects: to stable release or not?
+3,12,Do you have a common base class for Hibernate entities?
+3,74,How do you setup a shared Working Copy in Subversion
+3,78,bash script runs from shell but not from cron job
+3,24,When using cvs2svn how can you rename symbols such that a branch and tag resolve to the same name?
+3,68,Getting specific revision via http with VisualSVN Server
+3,43,Sharepoint WebParts
+3,4,In Matlab, how do I change the background color of a subplot?
+3,64,How can I determine the running Mac OS X version programmatically?
+3,7,How do I get the MAX row with a GROUP BY in LINQ query
+3,68,Looking for MacOS Threaded Networking sample code
+3,2,Does LINQ's ExecuteCommand provide protection from SQL injection attacks?
+3,31,How to trunc a date to seconds in Oracle
+3,52,Project dependencies across multiple Visual Studio versions
+3,25,Tool for translation of Oracle PL/SQL into Postgresql PL/pgSQL
+3,53,How can I make a program start up automatically in OSX?
+3,93,What is the best way to separate UI (designer/editor) logic from the Package framework (like Visual Studio Package)
+3,18,Best practices: .NET: How to return PK against an oracle database?
+3,47,How can I send an HTTP POST request to a server from Excel using VBA?
+3,2,What to do when 'svn cleanup' fails?
+3,7,Using Linq with WCF
+3,81,DLL versions and Visual Studio attach to process
+3,88,Check out from a remote SVN repository TO a remote location?
+3,76,How do I create a custom directive for Apache Velocity
+3,25,How to find oracle error codes that could result from a connection error?
+3,78,Oracle ROWNUM
+3,41,subversion diff including new files
+3,61,How do I sort my code in Visual Studio 2008?
+3,21,Visual Studio Debugger + Break when a value changes?
+3,83,Is there a way to keep Visual Studio from modifying the solution file after every test run?
+3,37,"Authorization failed" with SVN 1.5.2 on OS X
+3,32,Required Fields in Share Point data collection not throwing errors
+3,76,How to use ditto on OS X to work like cp -a on Linux
+3,29,What svn command would list all the files modified on a branch?
+3,90,Apache mod_rewrite to catch XML requests
+3,53,linqtosql, timespan, aggregates ... can it be done?
+3,86,Oracle considers empty strings to be NULL while SQL Server does not - How is this best handled?
+3,82,autoconf using sh, I need SHELL=BASH, how do I force autoconf to use bash?
+3,32,What are the differences between the different saving methods in Hibernate?
+3,74,How do I get svn:ignore to work properly?
+3,67,bash: start multiple chained commands in background
+3,43,How can I maintain history of a file that is moved to a directory overwriting a file of the same name
+3,63,Can you recommend books for getting started with Web Development on a Mac?
+3,69,Visual Studio 2005: All projects in solution explorer expanded on first opening of solution
+3,2,Visual Studio 2008: make ctrl-k, ctrl-n (next bookmark) stay within the same file
+3,13,Best Way To Get Started With Mac Development
+3,20,How to transfer data from one database to another with Hibernate?
+3,10,What's a good book for learning Cocoa and Mac programming?
+3,87,Ora 12154 error
+3,79,Prevent Legacy Function Calls In VB.NET
+3,80,How do I ignore a directory in mod_rewrite?
+3,22,How do I create an Excel chart that pulls data from multiple sheets?
+3,64,Is there a way to get types/names of an unknown db query without executing it?
+3,48,Where is the Attic in Subversion?
+3,78,HTML/Javascript app that runs on the filesystem, security issue
+3,29,Installing RMagick on Mac OS X with MacPorts
+3,43,Should repositories implement IQueryable<T>?
+3,64,Creating Project Fails in Visual Studio 2005 and VS2008
+3,77,CSV file.  Excel is automatically converting my text to a date.  Bad Excel.
+3,54,How to disable Oracle XE component which is listening on 8080?
+3,52,What is the syntax for custom stacks for the OSX Leopard dock?
+3,85,Apache configuration help -- Why are different processes "in" different time zones?
+3,18,C# structural highlighting in Visual Studio 2008
+3,0,Searching date meta tags in Sharepoint
+3,56,How to convert a DB2 date-time string into an Excel Date
+3,61,Oracle instant client with OraOLE DB provider?
+3,41,.Net Localization problem
+3,14,obtain current svn revision in webapp
+3,24,What is Microsoft's official stance on using WCF with Visual Studio 2005?
+3,52,detect svn changes in a .bat
+3,28,How do I find the version of Apache running without access to the command line?
+3,3,Is it possible to select a specific tab in OSX Terminal.app using keyboard shortcuts?
+3,42,How do you manage .vcproj files in souce control which are changed by multiple developers?
+3,88,How did you choose your Visual Studio productivity addon?
+3,57,Best practice for creating subversion repositories?
+3,27,Is it possible to Pivot data using LINQ?
+3,34,Any clever way to launch a makefile in Visual Studio only if build succeeded?
+3,69,Subversion and revision engineering - what are the best web resources to read about?
+3,31,Oracle merge constants into single table
+3,80,Visual Studio database project designers
+3,82,Any problems with SVN merge on a multi column ( tab delimited ) text file?
+3,3,What is the simplest way to allow a user to drag and drop table rows in order to change their order?
+3,60,AJAX, postbacks and browser refreshes
+3,21,Very slow response for Visual Studio 2005 Web Site Administration Tool
+3,75,Is there a more efficient way of making pagination in Hibernate than executing select and count queries?
+3,73,How do I show an embedded excel file in a WebPage?
+3,29,Eclipse's Crtl+click in Visual Stdio?
+3,46,Visual Studio Memory Usage
+3,38,Why does subversion chown/recreate files on checkin?
+3,12,Unauthorized Sharepoint WSDL from Coldfusion 8
+3,5,How do I disable the "smart insert" function that is bound to the Tab key in the Visual Studio emacs mode?
+3,77,How do I iterate over a range of numbers in bash?
+3,27,DateTime, DateTime? and LINQ
+3,7,How to prevent a script form running simultaneously?
+3,78,USB Driver Development on a Mac using Python
+3,49,Change Sound (or other) System Preferences in Mac OS X
+3,18,Excel detect inactivity
+3,25,Objective-C Tidy
+3,23,What's the best .NET library for parsing and generating Excel spreadsheets?
+3,46,To host or not to host?
+3,51,Is there a way to maximise the current tab in Visual Studio?
+3,86,Is  SVNAutoversioning directive in apache subversion imporant?
+3,91,Standard/good way to integrate AJAX and PHP
+3,66,Autostart spring app
+3,66,Has anyone here worked on KOFAX-SharePoint 2007 integration?
+3,80,Apache Webserver security and optimization tips
+3,53,Programming on the Asus EEE Pc in Visual Studio
+3,66,How can I increase the key repeat rate beyond the OS's limit?
+3,40,Explicit Type Conversion in Scala
+3,48,Is it possible to deploy an already built Drupal site?
+3,11,Excel 2003 XML format - AutoFitWidth not working
+3,79,Detecting appearance/disapperance of volumes on osx
+3,71,How to find and tail the Oracle alert log
+3,6,How to check syntax in bash (without running the script)

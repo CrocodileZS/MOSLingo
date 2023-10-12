@@ -1,2 +1,2 @@
 # MOSLingo
-Minimum Others Score in large semantic natural language processing
+MOSLingo: out-of-distribution detection for large semantic text classification

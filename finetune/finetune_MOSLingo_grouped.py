@@ -1,7 +1,6 @@
 from utils.MOSLingoDataLoader import MOSLingoDataLoader
 import torch
 from torch.utils.data import TensorDataset, DataLoader
-import torch.optim as optim
 import torch.nn as nn
 import time
 from utils.log import get_logger
@@ -11,7 +10,7 @@ import torch.nn.functional as F
 from utils.loss import calc_group_softmax_loss
 
 # configurations
-batch_size = 20
+batch_size = 5
 plm_for_tokenize = "bert-base-cased"
 num_group = 4
 
@@ -21,7 +20,6 @@ def main():
                                      num_group=num_group,
                                      max_token_len=128)
 
-    # must read in group_number order
     data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/CLINIC/demo_clinic.csv")
     data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/M-CID/demo_mcid.csv")
     data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/HWU/demo_hwu.csv")
@@ -33,6 +31,9 @@ def main():
     group_slice = torch.tensor(data_loader.group_slice)
     train_dataset = TensorDataset(input_ids, attention_mask, label_ids)
 
+    # save group slice for test
+    torch.save(group_slice, "./group_slice.pt")
+
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
@@ -41,9 +42,10 @@ def main():
     model.to(device)
 
     # training parameters
-    EPOCHS = 10
-    learning_rate = 0.00001
-    optimizer = optim.AdamW(model.parameters(), lr=learning_rate)
+    EPOCHS = 5
+    learning_rate = 5e-6
+    trainable_params = filter(lambda p: p.requires_grad, model.parameters())
+    optimizer = torch.optim.SGD(trainable_params, lr=learning_rate, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
 
     logger = get_logger(f'./train_{time.time()}.log')
@@ -56,6 +58,12 @@ def main():
         # TODO: Resume fine-tuning if we find a saved model.
 
         model.train()
+
+        # set a linear for classification
+        linear_input_size = model.embeddings.position_embeddings.embedding_dim  # last layer dimension
+        linear_output_size = data_loader.group_slice[-1][1] + 1
+        linear = nn.Linear(in_features=linear_input_size, out_features=linear_output_size)
+
         for batch_index, batch in enumerate(train_dataloader):
             input_ids = batch[0].to(device)
             attention_mask = batch[1].to(device)
@@ -66,11 +74,6 @@ def main():
                 input_ids=input_ids,
                 attention_mask=attention_mask
             ).pooler_output
-
-            # set a linear for classification
-            linear_input_size = model.embeddings.position_embeddings.embedding_dim # last layer dimension
-            linear_output_size = data_loader.group_slice[-1][1] + 1
-            linear = nn.Linear(in_features=linear_input_size, out_features=linear_output_size)
 
             logits = linear(x)
             pred_prob = F.softmax(logits)
@@ -85,11 +88,17 @@ def main():
             model.zero_grad()
             loss.backward()
             optimizer.step()
+            optimizer.zero_grad()
 
             # TODO: add model.evel()
 
-        if Epoch % 5 == 0:
-            torch.save(model.state_dict(), f'models/grouped_model{time.time()}.pkl')
+        if Epoch % 2 == 0:
+            saved_dict = {
+                'model': model.state_dict(),
+                'optimizer': optimizer.state_dict(),
+                'linear': linear.state_dict()
+            }
+            torch.save(saved_dict, f'./grouped_model{time.time()}.pth.tar')
 
 
 if __name__ == '__main__':

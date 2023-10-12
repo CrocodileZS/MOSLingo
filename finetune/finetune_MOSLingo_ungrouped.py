@@ -8,8 +8,6 @@ from utils.log import get_logger
 from transformers import BertModel
 import torch.nn.functional as F
 
-from utils.loss import calc_group_softmax_loss
-
 # configurations
 batch_size = 20
 plm_for_tokenize = "bert-base-cased"
@@ -88,7 +86,11 @@ def main():
             # TODO: add model.evel()
 
         if Epoch % 5 == 0:
-            torch.save(model.state_dict(), f'models/grouped_model{time.time()}.pkl')
+            saved_dict = {
+                'model': model.state_dict(),
+                'optimizer': optimizer.state_dict()
+            }
+            torch.save(saved_dict, f'./grouped_model{time.time()}.pth.tar')
 
 
 if __name__ == '__main__':

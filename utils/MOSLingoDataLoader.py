@@ -15,8 +15,6 @@ class MOSLingoDataLoader:
         self.labels_grouped_batch = []
         self.labels_ungrouped_batch = []
         self.max_token_len = max_token_len
-        self.train_dataset = {}
-        self.val_dataset = {}
         self.num_classes_each_group_without_others = []
         self.group_slice = []
 
