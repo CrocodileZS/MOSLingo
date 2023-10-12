@@ -3,11 +3,11 @@ import torch
 from torch.utils.data import TensorDataset, DataLoader
 import torch.nn as nn
 import time
-from utils.log import get_logger
+from utils.log_utils import get_logger
 from transformers import BertModel
 import torch.nn.functional as F
 
-from utils.loss import calc_group_softmax_loss
+from utils.loss_utils import calc_group_softmax_loss
 
 # configurations
 batch_size = 5
@@ -88,7 +88,7 @@ def main():
             model.zero_grad()
             loss.backward()
             optimizer.step()
-            optimizer.zero_grad()
+            # optimizer.zero_grad()
 
             # TODO: add model.evel()
 

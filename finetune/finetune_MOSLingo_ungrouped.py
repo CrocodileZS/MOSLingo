@@ -4,7 +4,7 @@ from torch.utils.data import TensorDataset, DataLoader
 import torch.optim as optim
 import torch.nn as nn
 import time
-from utils.log import get_logger
+from utils.log_utils import get_logger
 from transformers import BertModel
 import torch.nn.functional as F
 

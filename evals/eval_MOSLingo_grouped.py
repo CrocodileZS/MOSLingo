@@ -4,6 +4,9 @@ from utils.TestDataLoader import TestDataLoader
 from torch.utils.data import TensorDataset, DataLoader
 import torch.nn as nn
 import torch.nn.functional as F
+from utils.eval_utils import run_eval
+import time
+from utils.log_utils import get_logger
 
 # configurations
 plm_for_tokenize = "bert-base-cased"
@@ -17,9 +20,9 @@ def main():
     # test_data_loader.add_ind_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/Snips/demo_snips.csv")
     test_data_loader.add_ood_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/data/CLINIC/demo_stackoverflow.csv")
 
-    input_ids = torch.tensor([i for i in test_data_loader.input_ids_batch], dtype=torch.long)
-    attention_mask = torch.tensor([i for i in test_data_loader.attention_mask_batch], dtype=torch.long)
-    label_ids = torch.tensor([i for i in test_data_loader.labels_grouped_batch], dtype=torch.long)
+    input_ids = torch.tensor([i for i in test_data_loader.test_input_ids_batch], dtype=torch.long)
+    attention_mask = torch.tensor([i for i in test_data_loader.test_attention_mask_batch], dtype=torch.long)
+    label_ids = torch.tensor([i for i in test_data_loader.test_labels_batch], dtype=torch.long)
     test_dataset = TensorDataset(input_ids, attention_mask, label_ids)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -32,6 +35,9 @@ def main():
 
     checkpoint = torch.load('<finetuned_model>.pth.tar')
     model.load_state_dict(checkpoint['model'])
+    model.eval()
+
+    logger = get_logger(f'./eval_{time.time()}.log')
 
     for batch_index, batch in enumerate(test_dataloader):
         input_ids = batch[0].to(device)
@@ -54,5 +60,5 @@ def main():
         pred_prob = F.softmax(logits)
 
         # pred
-
+        run_eval(logger, pred_prob, group_slice, labels)
 
