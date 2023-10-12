@@ -1,6 +1,6 @@
 from transformers import BertModel
 import torch
-from dataloader.TestDataLoader import TestDataLoader
+from dataloader.EvalDataLoader import TestDataLoader
 from torch.utils.data import TensorDataset, DataLoader
 import torch.nn as nn
 import torch.nn.functional as F
