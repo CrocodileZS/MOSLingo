@@ -55,7 +55,7 @@ def main():
     # start training
     for Epoch in range(1, EPOCHS + 1):
 
-        # TODO: Resume fine-tuning if we find a saved model.
+        ## Resume fine-tuning if we find a saved model.
 
         model.train()
 
@@ -90,7 +90,7 @@ def main():
             optimizer.step()
             # optimizer.zero_grad()
 
-            # TODO: add model.evel()
+            ## add model.evel()
 
         if Epoch % 2 == 0:
             saved_dict = {

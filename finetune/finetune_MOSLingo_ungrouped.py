@@ -13,6 +13,7 @@ batch_size = 20
 plm_for_tokenize = "bert-base-cased"
 num_group = 4
 
+
 def main():
     # load the dataset
     data_loader = MOSLingoDataLoader(plm_for_tokenize=plm_for_tokenize,
@@ -50,7 +51,7 @@ def main():
     # start training
     for Epoch in range(1, EPOCHS + 1):
 
-        # TODO: Resume fine-tuning if we find a saved model.
+        ## Resume fine-tuning if we find a saved model.
 
         model.train()
         for batch_index, batch in enumerate(train_dataloader):
@@ -65,7 +66,7 @@ def main():
             ).pooler_output
 
             # set a linear for classification
-            linear_input_size = model.embeddings.position_embeddings.embedding_dim # last layer dimension
+            linear_input_size = model.embeddings.position_embeddings.embedding_dim  # last layer dimension
             linear_output_size = data_loader.group_slice[-1][1] + 1
             linear = nn.Linear(in_features=linear_input_size, out_features=linear_output_size)
 
@@ -76,14 +77,14 @@ def main():
             loss = criterion(pred_prob, labels)
 
             logger.info('Epoch: %d ｜ Train: | Batch: %d / %d | Loss: %f' %
-                  (Epoch, batch_index + 1, len(train_dataloader), loss)
-            )
+                        (Epoch, batch_index + 1, len(train_dataloader), loss)
+                        )
 
             model.zero_grad()
             loss.backward()
             optimizer.step()
 
-            # TODO: add model.evel()
+            ## add model.evel()
 
         if Epoch % 5 == 0:
             saved_dict = {
