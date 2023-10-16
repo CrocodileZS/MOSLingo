@@ -28,7 +28,8 @@ class MOSLingoDataLoader:
             tokenized_data = self.tokenizer.encode_plus(sent,
                                                         add_special_tokens=True,
                                                         padding="max_length",
-                                                        max_length=self.max_token_len)
+                                                        max_length=self.max_token_len,
+                                                        truncation=True)
             input_ids = tokenized_data["input_ids"]
             attention_mask = tokenized_data["attention_mask"]
             label = np.zeros(self.num_group, dtype=int)
@@ -49,9 +50,11 @@ class MOSLingoDataLoader:
 
 
 if __name__ == "__main__":
-    data_loader = MOSLingoDataLoader(plm_for_tokenize="bert-base-cased", num_group=4, max_token_len=128)
+    data_loader = MOSLingoDataLoader(plm_for_tokenize="bert-base-cased", num_group=4, max_token_len=50)
 
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/CLINIC/demo_clinic.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/M-CID/demo_mcid.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/HWU/demo_hwu.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/Snips/demo_snips.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/CLINIC/G0_CLINIC150_train.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/M-CID/M-CID_train.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/HWU/HWU64_train.csv")
+    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/Snips/G3_SNIPS_train.csv")
+
+    print("end")
