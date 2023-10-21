@@ -17,7 +17,10 @@ class TestDataLoader:
         with open(path) as file:
             lines = file.readlines()
         for line in lines:
-            group_id, class_id, sent = line.strip().split(',', 2)
+            try:
+                group_id, class_id, sent = line.strip().split(',', 2)
+            except ValueError:
+                continue
             tokenized_data = self.tokenizer.encode_plus(sent,
                                                         add_special_tokens=True,
                                                         padding="max_length",
@@ -32,7 +35,10 @@ class TestDataLoader:
         with open(path) as file:
             lines = file.readlines()
         for line in lines:
-            group_id, class_id, sent = line.strip().split(',', 2)
+            try:
+                group_id, class_id, sent = line.strip().split(',', 2)
+            except ValueError:
+                continue
             tokenized_data = self.tokenizer.encode_plus(sent,
                                                         add_special_tokens=True,
                                                         padding="max_length",

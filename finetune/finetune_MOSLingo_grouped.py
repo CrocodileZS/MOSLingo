@@ -1,3 +1,6 @@
+import sys
+sys.path.append("/gpfs/home6/scur0843/JHS_notebooks/directory to extract/MOSLingo")
+
 from dataloader.MOSLingoDataLoader import MOSLingoDataLoader
 import torch
 from torch.utils.data import TensorDataset, DataLoader
@@ -7,13 +10,16 @@ from utils.log_utils import get_logger
 from model.MOSLingoModel import MosLingoModel
 from utils.loss_utils import calc_group_softmax_loss
 
+
 # configurations
-batch_size = 100
+batch_size = 15
 plm_for_tokenize = "bert-base-cased"
 num_group = 4
 EPOCHS = 20
-learning_rate = 0.001
+learning_rate = 0.0001
 max_token_len = 128
+
+torch.cuda.empty_cache()
 
 
 def main():
@@ -22,10 +28,14 @@ def main():
                                      num_group=num_group,
                                      max_token_len=max_token_len)
 
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/CLINIC/G0_CLINIC150_train.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/M-CID/M-CID_train.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/HWU/HWU64_train.csv")
-    data_loader.add_group_data("/Users/zhouyuyang/PycharmProjects/MOSLingo/dataset/Snips/G3_SNIPS_train.csv")
+    data_loader.add_group_data(
+        "/gpfs/home6/scur0843/JHS_notebooks/directory to extract/MOSLingo/dataset/CLINIC/G0_CLINIC150_train.csv")
+    data_loader.add_group_data(
+        "/gpfs/home6/scur0843/JHS_notebooks/directory to extract/MOSLingo/dataset/M-CID/M-CID_train.csv")
+    data_loader.add_group_data(
+        "/gpfs/home6/scur0843/JHS_notebooks/directory to extract/MOSLingo/dataset/HWU/HWU64_train.csv")
+    data_loader.add_group_data(
+        "/gpfs/home6/scur0843/JHS_notebooks/directory to extract/MOSLingo/dataset/Snips/G3_SNIPS_train.csv")
 
     input_ids = torch.tensor([i for i in data_loader.input_ids_batch], dtype=torch.long)
     attention_mask = torch.tensor([i for i in data_loader.attention_mask_batch], dtype=torch.long)
@@ -43,7 +53,7 @@ def main():
     model = MosLingoModel(plm="bert-base-cased", group_slice=data_loader.group_slice)
     model.to(device)
 
-    # training parameters
+    # training sets
     trainable_params = filter(lambda p: p.requires_grad, model.parameters())
     optimizer = torch.optim.SGD(trainable_params, lr=learning_rate, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
@@ -71,14 +81,14 @@ def main():
             # calculate loss
             loss = calc_group_softmax_loss(criterion, pred_prob, labels, group_slice)
 
-            logger.info('Epoch: %d ｜ Train: | Batch: %d / %d | Loss: %f' %
-                  (Epoch, batch_index + 1, len(train_dataloader), loss)
-            )
+            logger.info('Epoch: %d ｜ Batch: %d / %d | Loss: %f' %
+                        (Epoch, batch_index + 1, len(train_dataloader), loss)
+                        )
 
             loss.backward()
             optimizer.step()
 
-            # add validation
+            # add model.evel()
 
         if Epoch % 5 == 0:
             saved_dict = {

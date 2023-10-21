@@ -23,7 +23,10 @@ class MOSLingoDataLoader:
             lines = file.readlines()
         max_class_id = -1
         for line in lines:
-            group_id, class_id, sent = line.strip().split(',', 2)
+            try:
+                group_id, class_id, sent = line.strip().split(',', 2)
+            except ValueError:
+                continue
             max_class_id = max(max_class_id, int(class_id))
             tokenized_data = self.tokenizer.encode_plus(sent,
                                                         add_special_tokens=True,
