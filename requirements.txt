@@ -1,0 +1,4 @@
+numpy==1.26.1
+ood_metrics==1.1.2
+torch==2.1.0
+transformers==4.34.0
