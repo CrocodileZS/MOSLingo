@@ -1,3 +1,10 @@
+Different from the grouping strategy in `MOS`, `MOSLingo` utilize four intent detection datasets as IND data and two as OOD data. The datasets cover areas such as financial, medical, programming, etc.
+
+We have offered processed data in dataset folder.
+
+## Data Format
+<group_id>,<class_id>,<utterance>
+
 ## Data Source
 - (Group 0) [CLINIC150](https://huggingface.co/datasets/clinc_oos) 150 intent classes over 10 domains;
 - (Group 1) [M-CID](https://fb.me/covid_mcid_dataset) covid-19 domain;
@@ -6,7 +13,7 @@
 - (Group 4) [BANKING77](https://huggingface.co/datasets/banking77) financial domain, 77 classes;
 - (Group 5) [StackOverflow](https://github.com/jacoxu/StackOverflow) coding domain; 20 classes;
 
-## Dataset Formation
+## Dataset Composition
 ### In-domain(4 groups/datasets): 
 - (Group 1): Clinic150
 - (Group 2): M-CID
