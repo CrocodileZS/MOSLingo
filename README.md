@@ -5,6 +5,8 @@ This is an OOD detection framework named `MOSLingo` for intent detection task in
 
 Different from the grouping strategy in `MOS`, `MOSLingo` utilize four intent detection datasets as IND data and two as OOD data. The datasets cover areas such as financial, medical, programming, etc.
 
+![The Framework of MOSLingo](framework.png)
+
 ## Usage
 ### Data Preparation
 We have offered processed data in dataset folder. See `README.md` in dataset folder for more.
